@@ -24,6 +24,6 @@ void getPopulationSize(void){
      years++;
  }
  
- printf("years: %i\n",years);
+ printf("Years: %i\n",years);
     
 }
