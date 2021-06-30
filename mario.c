@@ -26,7 +26,8 @@ void getAlignetBlocks(int height)
             printf("#");
         }
         printf("  ");
-        for (int s=0;s<i;s++){
+        for (int s = 0; s < i; s++)
+        {
             printf("#");
         }
         printf("\n");
