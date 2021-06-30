@@ -12,7 +12,7 @@ int main(void)
         change = get_float("Change Owe :");
 
     }
-    while (chang <= 0);
+    while (change <= 0);
     int toCents = round(change * 100);
     while (toCents - 25 >= 0)
     {
