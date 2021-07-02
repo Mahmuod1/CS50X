@@ -12,15 +12,15 @@ int main(void)
     int numberOfLettersInString = get_letters(name);
     if(numberOfLettersInString < 1)
      {
-       printf("Before Grade 1");
+       printf("Before Grade 1\n");
      }
     else if(numberOfLettersInString>15)
     {
-       printf("Grade 16+");
+       printf("Grade 16+\n");
     } 
     else
     {
-         printf("Grade %i",numberOfLettersInString);
+         printf("Grade %i\n",numberOfLettersInString);
     }
 }
 
