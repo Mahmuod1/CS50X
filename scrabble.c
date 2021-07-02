@@ -23,7 +23,7 @@ if(score1<score2){
 {
     printf("Player 1 wins!\n");
 }else{
-    printf("draw");
+    printf("Tie!");
 }
     // TODO: Print the winner
 }
