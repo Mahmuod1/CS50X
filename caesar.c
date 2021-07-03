@@ -23,6 +23,8 @@ for (int i = 0 ; i < keylen; i++)
  }
 }
 
+}else{
+    return 1;
 }
 key = atoi(keyString);
  string text=get_string("plaintext: ");
