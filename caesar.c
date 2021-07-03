@@ -42,4 +42,5 @@ key = atoi(keyString);
 
  }
   printf("ciphertext: %s\n",text);
+  return 1;
 }
