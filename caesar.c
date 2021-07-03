@@ -9,7 +9,9 @@ int main(int argc,string argv[])
 
 
     int key ;
-string keyString= argv[1];
+    string keyString;
+if(argc==2){
+     keyString= argv[1];
 int keylen= strlen(keyString);
 
 for (int i = 0 ; i < keylen; i++)
@@ -21,6 +23,7 @@ for (int i = 0 ; i < keylen; i++)
  }
 }
 
+}
 key = atoi(keyString);
  string text=get_string("plaintext: ");
 
