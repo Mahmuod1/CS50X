@@ -1,0 +1,12 @@
+sort1 uses: TODO
+bubble sort
+How do you know?: TODO
+because the best case in sorted file was less time than worset case with reversed or random files and it's time was more than sort2
+sort2 uses: TODO
+merge sort
+How do you know?: TODO
+because it was the less time overall two sort1 and sort2 and best case and worset case was the same time
+sort3 uses: TODO
+selection sort
+How do you know?: TODO
+because it worst case and best case are likley the same time and it's time was more than sort2
