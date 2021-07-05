@@ -82,19 +82,28 @@ return true;
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
+    
     string winner;
     int heightestvote=0;
+    int maxVotes = -1;
     for(int i = 0 ; i < candidate_count ; i++)
     {
-        if(heightestvote<candidates[i].votes)
+        
+        if(candidates[i].votes >= maxVotes)
         {
-             winner=candidates[i].name;
-          heightestvote=candidates[i].votes;
+           maxVotes = candidates[i].votes;
         }
 
     }
 
-    printf("%s\n",winner);
+for (int i = 0 ; i<candidate_count ; i++)
+{
+    if(candidates[i].votes==maxVotes)
+    {
+        printf("%s\n",candidates[i].name);
+    }
+}
+   
     return;
 }
 
