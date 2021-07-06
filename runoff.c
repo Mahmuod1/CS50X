@@ -49,7 +49,7 @@ int main(int argc, string argv[])
         printf("Maximum number of candidates is %i\n", MAX_CANDIDATES);
         return 2;
     }
-    
+
     for (int i = 0; i < candidate_count; i++)
     {
       for(int j = i+1 ; j<candidate_count; j++)
@@ -154,11 +154,11 @@ for(int i = 0 ; i < candidate_count ; i++)
         //         printf("the same candidates\n");
         //         return false;
         //     }
-        // } 
+        // }
         preferences[voter][rank] = i;
       return true;
-       
-     
+
+
     }
 }
     return false;
@@ -168,7 +168,7 @@ for(int i = 0 ; i < candidate_count ; i++)
 void tabulate(void)
 {
 
-   
+
  for(int i = 0 ; i < voter_count ; i++)
  {
     int n=0;
@@ -182,10 +182,10 @@ while(n<candidate_count)
     else{
         n++;
     }
-    
+
 }
  }
-  
+
 }
 
 // Print the winner of the election, if there is one
@@ -205,7 +205,7 @@ int winnerIndex=0;
             maxVotes = candidates[i].votes;
             winnerIndex=i;
         }
-        
+
 
     }
    int runOff=voter_count/candidate_count+1;
@@ -225,7 +225,7 @@ int minVotes =(voter_count/candidate_count)+1;
 int lostIndex=0;
     for (int i = 0 ; i < candidate_count ; i++)
     {
-        
+
         if (candidates[i].votes <= minVotes)
         {
             minVotes = candidates[i].votes;
@@ -241,6 +241,13 @@ int lostIndex=0;
 bool is_tie(int min)
 {
     int numberOfTies=0;
+    int numberofUnEliminated=0;
+ for (int i = 0 ; i < candidate_count ; i++)
+ {
+     if(!candidates[i].eliminated){
+         numberofUnEliminated++;
+     }
+ }
  for (int i = 0 ; i < candidate_count ; i++)
  {
      if(candidates[i].votes==min&&!candidates[i].eliminated)
@@ -248,9 +255,9 @@ bool is_tie(int min)
          numberOfTies++;
      }
  }
- if(numberOfTies==candidate_count)
+ if(numberOfTies==numberofUnEliminated)
  {
-     
+
      return true;
  }
 
