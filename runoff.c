@@ -52,13 +52,13 @@ int main(int argc, string argv[])
 
     for (int i = 0; i < candidate_count; i++)
     {
-      for(int j = i+1 ; j<candidate_count; j++)
-      {
-          if(strcmp(argv[i+1],argv[j+1])==0)
-          {
-              printf("cannot make same candidate\n");
-          }
-      }
+        for (int j = i + 1 ; j < candidate_count; j++)
+        {
+            if (strcmp(argv[i + 1], argv[j + 1]) == 0)
+            {
+                printf("cannot make same candidate\n");
+            }
+        }
         candidates[i].name = argv[i + 1];
         candidates[i].votes = 0;
         candidates[i].eliminated = false;
@@ -138,29 +138,18 @@ int main(int argc, string argv[])
 bool vote(int voter, int rank, string name)
 {
     // TODO
-   int n =0;
-for(int i = 0 ; i < candidate_count ; i++)
-{
-
-    if(strcmp(candidates[i].name,name)==0)
+    int n = 0;
+    for (int i = 0 ; i < candidate_count; i++)
     {
-        //   for(int k = 0; k <rank+1 ;k++)
-        // {
-        //     if(preferences[voter][k]==i)
-        //     {
-        //         string cand=candidates[preferences[voter][k]].name;
-        //         printf("%s n\n",cand);
-        //         printf("%i u",i);
-        //         printf("the same candidates\n");
-        //         return false;
-        //     }
-        // }
-        preferences[voter][rank] = i;
-      return true;
+
+        if (strcmp(candidates[i].name, name) == 0)
+        {
+            preferences[voter][rank] = i;
+            return true;
 
 
+        }
     }
-}
     return false;
 }
 
@@ -169,22 +158,23 @@ void tabulate(void)
 {
 
 
- for(int i = 0 ; i < voter_count ; i++)
- {
-    int n=0;
-while(n<candidate_count)
-{
-    if(!candidates[preferences[i][n]].eliminated)
+    for (int i = 0 ; i < voter_count; i++)
     {
-        candidates[preferences[i][n]].votes+=1;
-        break;
-    }
-    else{
-        n++;
-    }
+        int n = 0;
+        while (n < candidate_count)
+        {
+            if (!candidates[preferences[i][n]].eliminated)
+            {
+                candidates[preferences[i][n]].votes += 1;
+                break;
+            }
+            else
+            {
+                n++;
+            }
 
-}
- }
+        }
+    }
 
 }
 
@@ -193,32 +183,32 @@ bool print_winner(void)
 {
     // TODO
     int maxVotes = -1;
-int winnerIndex=0;
+    int winnerIndex = 0;
     for (int i = 0 ; i < candidate_count ; i++)
     {
-        if(candidates[i].votes==maxVotes)
+        if (candidates[i].votes == maxVotes)
         {
             return false;
         }
         if (candidates[i].votes >= maxVotes)
         {
             maxVotes = candidates[i].votes;
-            winnerIndex=i;
+            winnerIndex = i;
         }
 
 
     }
-   int runOff=voter_count/candidate_count+1;
-   if(voter_count/maxVotes==2)
-   {
-       return false;
-   }
+    int runOff = voter_count / candidate_count + 1;
+    if (voter_count / maxVotes == 2)
+    {
+        return false;
+    }
 
-   if(maxVotes>=runOff)
-   {
-       printf("\n  %s\n",candidates[winnerIndex].name);
-       return true;
-   }
+    if (maxVotes >= runOff)
+    {
+        printf("\n  %s\n", candidates[winnerIndex].name);
+        return true;
+    }
     return false;
 }
 
@@ -226,16 +216,16 @@ int winnerIndex=0;
 int find_min(void)
 {
     // TODO
-int minVotes =(voter_count/candidate_count)+1;
-int lostIndex=0;
+    int minVotes = (voter_count / candidate_count) + 1;
+    int lostIndex = 0;
     for (int i = 0 ; i < candidate_count ; i++)
     {
 
         if (candidates[i].votes <= minVotes)
         {
             minVotes = candidates[i].votes;
-            lostIndex=i;
-            printf("min votes %i %s\n",minVotes,candidates[i].name);
+            lostIndex = i;
+            printf("min votes %i %s\n", minVotes, candidates[i].name);
         }
 
     }
@@ -245,26 +235,27 @@ int lostIndex=0;
 // Return true if the election is tied between all candidates, false otherwise
 bool is_tie(int min)
 {
-    int numberOfTies=0;
-    int numberofUnEliminated=0;
- for (int i = 0 ; i < candidate_count ; i++)
- {
-     if(!candidates[i].eliminated){
-         numberofUnEliminated++;
-     }
- }
- for (int i = 0 ; i < candidate_count ; i++)
- {
-     if(candidates[i].votes==min&&!candidates[i].eliminated)
-     {
-         numberOfTies++;
-     }
- }
- if(numberOfTies==numberofUnEliminated)
- {
+    int numberOfTies = 0;
+    int numberofUnEliminated = 0;
+    for (int i = 0 ; i < candidate_count ; i++)
+    {
+        if (!candidates[i].eliminated)
+        {
+            numberofUnEliminated++;
+        }
+    }
+    for (int i = 0 ; i < candidate_count ; i++)
+    {
+        if (candidates[i].votes == min && !candidates[i].eliminated)
+        {
+            numberOfTies++;
+        }
+    }
+    if (numberOfTies == numberofUnEliminated)
+    {
 
-     return true;
- }
+        return true;
+    }
 
     return false;
 }
@@ -273,12 +264,13 @@ bool is_tie(int min)
 void eliminate(int min)
 {
 
-for (int i =0;i<candidate_count;i++){
-    if(candidates[i].votes==min)
+    for (int i = 0; i < candidate_count; i++)
     {
-        candidates[i].eliminated=true;
+        if (candidates[i].votes == min)
+        {
+            candidates[i].eliminated = true;
+        }
     }
-}
 //   candidates[min].eliminated=true;
     return;
 }
