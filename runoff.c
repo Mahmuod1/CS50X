@@ -209,6 +209,11 @@ int winnerIndex=0;
 
     }
    int runOff=voter_count/candidate_count+1;
+   if(voter_count/maxVotes==2)
+   {
+       return false;
+   }
+
    if(maxVotes>=runOff)
    {
        printf("\n  %s\n",candidates[winnerIndex].name);
