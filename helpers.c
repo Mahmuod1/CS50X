@@ -68,7 +68,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     for(int r = 0; r < height; r++){
-     for (int right=width,left=0 ;right>left;left++,right--)
+     for (int right=width-1,left=0 ;right>left;left++,right--)
      {
          int temp= image[r][left].rgbtGreen;
          
