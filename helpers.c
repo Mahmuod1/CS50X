@@ -21,11 +21,11 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            int average=round( image[i][j].rgbtGreen +  image[i][j].rgbtBlue + image[i][j].rgbtRed /3);
+            int average=(( image[i][j].rgbtGreen +  image[i][j].rgbtBlue + image[i][j].rgbtRed ));
 
-            image[i][j].rgbtGreen=average;
-            image[i][j].rgbtBlue=average;
-            image[i][j].rgbtRed=average;
+            image[i][j].rgbtGreen=round(average/3);
+            image[i][j].rgbtBlue=round(average/3);
+            image[i][j].rgbtRed=round(average/3);
 
         }
     }
