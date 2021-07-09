@@ -97,7 +97,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             int count = 0;
-            int totalR=0,totalG=0,totalB=0;
+            float totalR=0,totalG=0,totalB=0;
             int rowCoords[] = {i-1,i,i+1};
             int colCoords[] = {j-1,j,j+1};
             
